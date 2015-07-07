@@ -1,0 +1,49 @@
+---
+title: "Exercise Gapminder"
+author: "PJM"
+date: "July 7, 2015"
+output: html_document
+---
+
+
+I will selected three different countries from gapminder file, and try to do a plot for each country. the countries are *Finland*, *Argentina*, *Zimbabwe*
+
+#Finland plot
+
+```{r update_libraries, message=FALSE}
+
+library(ggplot2)
+library(dplyr)
+```
+
+#Finland plot
+```{r Finland}
+gapminder <- read.csv('/Users/PJ/Downloads/gapminder-FiveYearData.csv')
+Finland <- filter(gapminder,country =='Finland')
+
+ggplot(data = Finland, aes(x=year, y=gdpPercap)) +
+  geom_point()+
+   ggtitle("Finland") 
+```
+
+#Argentina plot
+
+```{r Argentina}
+gapminder <- read.csv('/Users/PJ/Downloads/gapminder-FiveYearData.csv')
+Argentina <- filter(gapminder,country =='Argentina')
+
+ggplot(data = Argentina, aes(x=year, y=gdpPercap)) +
+  geom_point()+
+   ggtitle("Argentina") 
+```
+
+#Zimbabwe plot
+```{r Zimbabwe}
+gapminder <- read.csv('/Users/PJ/Downloads/gapminder-FiveYearData.csv')
+Zimbabwe <- filter(gapminder,country =='Zimbabwe')
+
+ggplot(data = Zimbabwe, aes(x=year, y=gdpPercap)) +
+  geom_point()+
+   ggtitle("Zimbabwe") 
+```
+

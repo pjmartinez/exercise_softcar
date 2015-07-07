@@ -1,0 +1,88 @@
+---
+title: "My example Software Carpentry"
+author: "PJM"
+date: "July 7, 2015"
+output: word_document
+---
+
+Some text like this, some of it is **bold** Some might be *italic*
+
+- first line
+- second line
+- third line
+
+
+
+
+1. numbered bullets 1
+2. numbered bullets 2
+3. numbered bullets 3
+
+
+#A section
+
+How are you?
+
+##A sub section
+
+I am fine, i hope everything is going well
+
+#A new section
+
+I will go to Spain during August
+
+
+Create a [web link](http://google.com)
+
+Link to an image
+
+```{r load_stuff, echo=FALSE}
+library(ggplot2)
+
+df <- read.csv('/Users/PJ/Downloads/gapminder-FiveYearData.csv')
+
+
+```
+```{r first_chunck}
+
+
+ggplot(data = df, aes(x=gdpPercap, color=continent, fill=continent)) +
+  geom_density(alpha=0.5)+
+  scale_x_log10()+
+  facet_wrap(~year)+
+  xlab("gdpPercap") + ylab("")+
+  ggtitle("My GGPLOT") 
+
+
+```
+
+```{r second_chunck}
+
+ggplot(data = df, aes(x = year, y = gdpPercap, by=country)) +
+  geom_point() +
+  geom_line(aes(color=continent))
+
+
+
+```{r third_chuk, echo=FALSE, dpi=30}
+library(ggplot2)
+
+
+
+df <- read.csv('/Users/PJ/Downloads/gapminder-FiveYearData.csv')
+
+ggplot(data = df, aes(x=gdpPercap, color=continent, fill=continent)) +
+  geom_density(alpha=0.5)+
+  scale_x_log10()+
+  facet_wrap(~year)+
+  xlab("gdpPercap") + ylab("")+
+  ggtitle("My GGPLOT")
+
+
+```
+
+The mean per capital GDP in the data set is
+`r mean(df$gdpPercap)`.
+
+
+
